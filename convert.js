@@ -11,15 +11,14 @@ function Convert(){
 	var count = vectMapKeys.length;
 
 	vectMapKeys.forEach(function(key){
-		//console.log(key);
-		//console.log(jsonVectMap.paths[key].name);
-		//console.log(jsonVectMap.paths[key].name.replace(/ /g,''));
-		//console.log(jsonMpMap[jsonVectMap.paths[key].name.replace(/ /g,'')]);
-		count--;
+		
 		var valuetmp = jsonMpMap[jsonVectMap.paths[key].name.replace(/ /g,'')];
+		
+		count--;
 		gpData[key] = valuetmp ? valuetmp : 0;
 
 		var valuetmpName = jsonMpNameMap[jsonVectMap.paths[key].name.replace(/ /g,'')]
+		
 		gpNameData[key] = valuetmpName ? valuetmpName : "";
 
 		 if(count == 0){
@@ -34,12 +33,15 @@ function Convert(){
 
 function writeToDataFile(data, name){
 
-  fs.writeFile("/users/anandviswanathan/Documents/code/indiangov/"+ name+ ".js", 'var ' + name +' =' + JSON.stringify(data), function(err) {
-    if(err) {
-        console.log(err);
-    } else {
-        console.log("The file was saved!");
-    }
-}); }
+	fs.writeFile("/users/anandviswanathan/Documents/code/indiangov/"+ name+ ".js", 'var ' + name +' =' + JSON.stringify(data), function(err) {
+	    
+	    if(err) {
+	        console.log(err);
+	    } 
+	    else {
+	        console.log("The file was saved!");
+	    }
+	});
+}
 
 Convert();

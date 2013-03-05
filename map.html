@@ -6,8 +6,10 @@
   <script src="jquery.js"></script>
   <script src="jquery-jvectormap-1.2.2.min.js"></script>
   <script src="jquery-jvectormap-in-mill-en.js"></script>
-  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
-  <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+  <script type='text/javascript' src='js/jquery.simplemodal.js'></script>
+  <script type='text/javascript' src='js/basic.js'></script>
+  <link type='text/css' href='css/demo.css' rel='stylesheet' media='screen' />
+  <link type='text/css' href='css/basic.css' rel='stylesheet' media='screen' />
   <script src="gpData.js"></script>
   <script src="gpNameData.js"></script>
 </head>
@@ -15,39 +17,49 @@
   <div id="map" style="width: 800px; height: 600px"></div>
   <script>
     $('#map').vectorMap({
-  map: 'in_mill_en',
-  series: {
-    regions: [{
-      values: gpData,
-      scale: ['#FFFFFF', '#FF0A0A'],
-      normalizeFunction: 'linear'
-    }]
-  },
-  backgroundColor: '#C2C2C2',
-  onRegionClick: function(e, code){
-    var names = gpNameData[code].split(';');
-    var text = "";
-    names.forEach(function(key){
-      if(key!== ""){
-      text = text + "      \n \n       " + key;
-    }
-    });
+      map: 'in_mill_en',
+      series: {
+        regions: [{
+          values: gpData,
+          scale: ['#FFFFFF', '#FF0A0A'],
+          normalizeFunction: 'linear'
+        }]
+      },
+    
+    backgroundColor: '#C2C2C2',
 
-    if(text != ""){
-    $("#dialog").html(text);
-    $( "#dialog" ).dialog({ width: 400,
-      modal: true});
-    }
+    onRegionClick: function(e, code){
+      
+      var names = gpNameData[code].split(';');
+      var text = "";
 
-    console.log(gpNameData[code]);
-  },
-  onRegionLabelShow: function(e, label, code){
-    label.html(label.html() + ', WFH ministers - '+(gpData[code]));
-  }
-});
+      names.forEach(function(key){
+          
+          if(key!== ""){
+            text = text + key +  "      <br><br>       " ;
+            
+          }
+
+        });
+
+        if(text != ""){
+          $("#dialog").html(text);
+          $( "#dialog" ).modal();
+        }
+
+        console.log(gpNameData[code]);
+      },
+
+    onRegionLabelShow: function(e, label, code){
+      label.html(label.html() + ', WFH ministers - '+(gpData[code]));
+    }
+  });
+
   </script>
-
-  <div id="dialog" title="Names">
+  <div style='display:none'>
+      <img src='img/basic/x.png' alt='' />
+    </div>
+  <div style='display:none' id="dialog" title="Names">
   <p></p>
 </div>
 </body>
