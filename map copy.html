@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jVectorMap demo</title>
+  <link rel="stylesheet" href="jquery-jvectormap-1.2.2.css" type="text/css" media="screen"/>
+  <script src="jquery.js"></script>
+  <script src="jquery-jvectormap-1.2.2.min.js"></script>
+  <script src="jquery-jvectormap-in-mill-en.js"></script>
+  <script src="gpData.js"></script>
+</head>
+<body>
+  <div id="map" style="width: 800px; height: 600px"></div>
+  <script>
+    $('#map').vectorMap({
+  map: 'in_mill_en',
+  series: {
+    regions: [{
+      values: gpData,
+      scale: ['#FFFFFF', '#FF0505'],
+      normalizeFunction: 'polynomial'
+    }]
+  },
+  onRegionLabelShow: function(e, el, code){
+    el.html(el.html()+' (WFH Ministers - '+gpData[code]+')');
+  }
+});
+  </script>
+</body>
+</html>

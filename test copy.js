@@ -1,0 +1,1 @@
+{"Andhra Pradesh":5,"Assam":1,"Bihar":1,"Gujarat":3,"Haryana":1,"Himachal Pradesh":1,"Jammu and Kashmir":1,"Jharkhand":2,"Karnataka":3,"Kerala":3,"Madhya Pradesh":4,"Maharashtra":6,"Meghalaya":2,"Orissa":1,"Punjab":1,"Rajasthan":4,"Tamil Nadu":8,"Uttar Pradesh":5,"Uttarakhand":1,"West Bengal":7,"Chandigarh":1,"Delhi":3,"Puducherry":1}

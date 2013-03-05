@@ -1,0 +1,1 @@
+var gpData ={"IN-AN":0,"IN-BR":1,"IN-MZ":0,"IN-DD":0,"IN-DN":0,"IN-DL":3,"IN-NL":0,"IN-WB":7,"IN-HR":1,"IN-HP":1,"IN-AS":1,"IN-UT":0,"IN-JH":2,"IN-JK":1,"IN-UP":5,"IN-SK":0,"IN-CT":0,"IN-CH":1,"IN-GA":0,"IN-GJ":3,"IN-RJ":4,"IN-MP":4,"IN-MH":6,"IN-TN":8,"IN-PY":1,"IN-AP":5,"IN-TR":0,"IN-AR":0,"IN-KA":3,"IN-PB":1,"IN-ML":2,"IN-MN":0,"IN-OR":1,"IN-KL":3}
