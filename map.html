@@ -36,14 +36,13 @@
       names.forEach(function(key){
           
           if(key!== ""){
-            text = text + key +  "      <br><br>       " ;
-            
+            text = text + key +  "<br><br>" ;
           }
 
         });
 
         if(text != ""){
-          $("#dialog").html(text);
+          $("#dialog").html( $("#dialog").html() + text );
           $( "#dialog" ).modal();
         }
 
@@ -60,7 +59,7 @@
       <img src='img/basic/x.png' alt='' />
     </div>
   <div style='display:none' id="dialog" title="Names">
-  <p></p>
+    <h3>Names of WFH Ministers</h3>
 </div>
 </body>
 </html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Work from home ministers</title>
+	<meta charset="utf-8" />
+	<meta name = "viewport" content = "width=device-width, maximum-scale = 1, minimum-scale=1" />
+	<link rel="stylesheet" type="text/css" href="css/default.css" media="all" />
+	<link rel="stylesheet" href="css/flexslider.css" type="text/css" />
+	<link rel="stylesheet" href="css/fixed-navigation.css" type="text/css" />
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css' />
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> -->
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.flexslider.js"></script>
+	<script src="js/default.js"></script>
+	<script type="text/javascript"
+	    src="https://maps.google.com/maps/api/js?sensor=false">
+	</script>
+	<script type="text/javascript">
+	  function initialize() {
+	    var latlng = new google.maps.LatLng(37.770155,-122.445331);
+	    var myOptions = {
+	      zoom: 8,
+	      center: latlng,
+	      mapTypeId: google.maps.MapTypeId.ROADMAP
+	    };
+	    var map = new google.maps.Map(document.getElementById("map_canvas"),
+	        myOptions);
+
+	    //Script to load vector map
+	    $('#map').vectorMap({
+	      map: 'in_mill_en',
+	      series: {
+	        regions: [{
+	          values: gpData,
+	          scale: ['#FFFFFF', '#0099FF'],
+	          normalizeFunction: 'linear'
+	        }]
+	      },
+	    
+	    backgroundColor: '#C2C2C2',
+
+	    onRegionClick: function(e, code){
+	      
+	      var names = gpNameData[code].split(';');
+	      var text = "";
+
+	      names.forEach(function(key){
+	          
+	          if(key!== ""){
+	            text = text + key +  "<br><br>" ;
+	          }
+
+	        });
+
+	        if(text != ""){
+	          $("#dialog").html( "<h3>Names of WFH Ministers</h3>" + text );
+	          console.log($( "#dialog" ).height());
+	          $( "#dialog" ).modal();
+	        }
+
+	        console.log(gpNameData[code]);
+	      },
+
+	    onRegionLabelShow: function(e, label, code){
+	      label.html(label.html() + ', WFH ministers - '+(gpData[code]));
+	    }
+	  });
+
+	  }
+
+	</script>
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+  <link rel="stylesheet" href="css/jquery-jvectormap-1.2.2.css" type="text/css" media="screen"/>
+  <script src="js/jquery-jvectormap-1.2.2.min.js"></script>
+  <script src="js/jquery-jvectormap-in-mill-en.js"></script>
+  <script type='text/javascript' src='js/jquery.simplemodal.js'></script>
+  <script type='text/javascript' src='js/basic.js'></script>
+  <link type='text/css' href='css/demo.css' rel='stylesheet' media='screen' />
+  <link type='text/css' href='css/basic.css' rel='stylesheet' media='screen' />
+  <script src="data/gpData.js"></script>
+  <script src="data/gpNameData.js"></script>
+
+</head>
+<body onload="initialize()">
+	<div id="pagewidth">
+		<header id="header">
+			<div class="center">
+				<nav id="mainNav">
+					<ul>
+						<li class="active"><a href="#twoColumnLayout"><span>Home</span></a></li>
+						<li><a href="#testiomonialsTab"><span>Credits</span></a></li>
+						<li><a href="#contactUs"><span>Contact us</span></a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<div id="content">
+			<section id="twoColumnLayout" class="row grey">
+				<div class="center">
+					<br>
+					<h1>WFH Ministers</h1>
+					<strong class="subHeading">Which Indian states have the most working from home ministers</strong>
+					<div class="columns">
+						<div class="oneForth">
+							<div class="imgHolder alignLeft"><img src="img/kitteh.jpg" alt="image" /></div>
+							<p><h2>Who are WFH ministers?</h2>
+								India has may members of parliament who do not take the time to actually go to the parliament or participate in debates.</p>
+							<p>These are the states to which some such ministers belong.</p>
+							<p>Hover over the states to get see how many ministers there are with 0% attendance in a session of parliament.</p>
+							<p>Click to get their names</p>
+							<p>Our source is govt published numbers, so if you find data errors we would love to track down the minister in charge!</p>
+
+							<div style='display:none'>
+							    <img src='img/basic/x.png' alt='' />
+							</div>
+							<div style='display:none' id="dialog" title="Names">
+							    <h3>Names of WFH Ministers</h3>
+							</div>
+						</div>
+						<div class="threeForth">
+							<div class="imgHolder fullWidth"><div id="map" style="width: 800; height: 600px"></div></div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="testiomonialsTab" class="row">
+				<div class="center">
+					<h1>Credits</h1>
+					<strong class="subHeading">This small experiment was built using the works of a few of our Brogrammers</strong>
+					<div id="testimonials" class="gallery">
+						<ul class="slides">
+							<li>
+								<div class="row">
+									<blockquote>
+										<q>Extremely <a href="http://myminister.info/">awesome api</a> by <a href="http://www.akshay.cc/">Akshay Rawat</a> for all the data</q>
+									</blockquote>
+									<blockquote>
+										<q>Brilliant vector map scripts and data by <a href="https://twitter.com/bjorn___d">Kirill Lebedev</a></q>
+									</blockquote>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<section id="contactUs" class="row grey">
+				<div class="center">
+					<h1>Contact Us</h1>
+					<strong class="subHeading"></strong>
+					<div class="columns">
+						<div class="half">
+							<div>
+								<p>
+									<a href="https://twitter.com/intent/tweet?screen_name=Anand_Seph" class="twitter-mention-button" data-size="large" data-related="Anand_Seph">Tweet to @Anand_Seph</a>
+									<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+									</script>
+								</p>
+								<p>
+									<a href="https://twitter.com/intent/tweet?screen_name=Kuthkameen" class="twitter-mention-button" data-size="large" data-related="Kuthkameen,Anand_Seph" data-dnt="true">Tweet to @Kuthkameen</a>
+									<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+									</script>
+								</p>
+							</div>
+						</div>
+						<div class="half">
+							<h2>How to find us</h2>
+							<div id="map">
+								<div class="imgHolder"><div id="map_canvas" style="width:445px; height:392px"></div></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<footer id="footer">
+			<div class="center">
+				<span class="copy">Ⓒ Anand Viswanathan and Ravi Prakash</span>
+			</div>
+		</footer>
+	</div>
+</body>
+</html>
