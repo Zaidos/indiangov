@@ -10,7 +10,7 @@
 
 #basic-modal-content {display:none;}
 
-#dialog {height: auto; width: 400px;}
+#dialog {height: auto; width: 300px;}
 
 /* Overlay */
 #simplemodal-overlay {background-color:#000;}
