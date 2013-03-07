@@ -8,7 +8,8 @@
  */
 @media all{
 	body{
-		font:14px Arial, Helvetica, sans-serif;
+		font-family: 'Droid Sans', sans-serif;
+		/*font:14px Arial, Helvetica, sans-serif;*/
 		margin:0;
 		background:#383838;
 		width:100%;
@@ -33,6 +34,7 @@
 	}
 	h1{
 		font:4.285em/1.067em 'PT Sans', Arial, Helvetica, sans-serif; /*60px/64px*/
+		font-family: 'Droid Sans', sans-serif;
 		margin:0 0 0.167em;
 		text-align:center;
 		color:#000;
@@ -40,6 +42,7 @@
 	}
 	h2 {
 		font:1.714em/1.125em Arial, Helvetica, sans-serif; /*24px/27px*/
+		font-family: 'Droid Sans', sans-serif;
 		color:#fff;
 		text-align:center;
 		margin:0 0 0.417em;
@@ -47,6 +50,7 @@
 	}
 	h3 {
 		font:1.285em/1.167em 'Nunito', Arial, Helvetica, sans-serif; /*18px/21px*/
+		font-family: 'Droid Sans', sans-serif;
 		margin:0 0 0.55em;
 		text-align:center;
 	}
@@ -163,6 +167,15 @@
 		text-shadow:0 1px 1px rgba(0,0,0,0.5);
 	}
 	.grey a{color:#fff;}
+	.denimPattern 
+		{
+			background-image: url(../img/denim.png); background-size: auto; background-repeat: repeat repeat; 
+		}
+	.kindaJean 
+		{
+			background-image: url(../img/kindajean.png); background-size: auto; background-repeat: repeat repeat; 
+		}
+
 	.btn{
 		position:relative;
 		display:inline-block;
